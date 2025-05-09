@@ -224,6 +224,7 @@ const WorkCard: React.FC<{
     >
       <div className="relative aspect-video overflow-hidden">
         <Image
+          fill
           src={image}
           alt={title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -475,7 +476,7 @@ export default function WorksPage() {
                 className="mt-4 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-balance text-5xl font-bold tracking-tight text-transparent md:text-6xl xl:text-7xl dark:from-green-400 dark:via-blue-400 dark:to-purple-400"
               >
                 Transforming Communities{" "}
-                <span className="relative inline-block">
+                <span className="relative text-primary inline-block">
                   Together
                   <AnimatedUnderline />
                 </span>

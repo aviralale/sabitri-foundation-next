@@ -252,7 +252,7 @@ export default function HeroSection() {
   const teamMembers = [
     {
       name: "Aarav Sharma",
-      image: "https://ui-avatars.com/api/?name=Aarav+Sharma&background=random",
+      image: "https://avatars.githubusercontent.com/u/121365480?v=4",
     },
     {
       name: "Luna Rai",
@@ -296,7 +296,7 @@ export default function HeroSection() {
                   className="mt-4 bg-gradient-to-r from-blue-600 via-orange-600 to-green-600 bg-clip-text text-balance text-5xl font-bold tracking-tight text-transparent md:text-6xl lg:mt-8 xl:text-7xl dark:from-primary dark:via-purple-400 dark:to-blue-400"
                 >
                   Making a Difference,{" "}
-                  <span className="relative inline-block">
+                  <span className="relative text-primary inline-block">
                     One Life
                     <motion.svg
                       width="100%"
@@ -384,7 +384,7 @@ export default function HeroSection() {
                   <StatsCounter number="6" label="Countries" delay={0.9} />
                   <StatsCounter number="7" label="Programs" delay={1.0} />
                   <StatsCounter
-                    number="100"
+                    number="1000"
                     label="Lives Impacted"
                     delay={1.1}
                   />
@@ -409,20 +409,24 @@ export default function HeroSection() {
                   transition={{ duration: 0.6, delay: 1.2 }}
                   className="absolute -bottom-8 -left-8 flex items-center gap-4 rounded-xl border border-muted bg-background/90 p-4 shadow-lg backdrop-blur-md dark:border-muted/20 dark:bg-muted/80"
                 >
-                  <div className="flex -space-x-4">
+                  <div className="flex -space-x-2">
                     {teamMembers.map((member, index) => (
                       <motion.div
                         key={index}
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
-                        className="h-10 w-10 overflow-hidden rounded-full border-2 border-background ring-2 ring-primary/10 dark:border-muted"
+                        transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                        className="h-10 w-10 overflow-hidden rounded-full border-2 border-white dark:border-gray-800 ring-2 ring-primary/10"
                       >
-                        <Image
-                          fill
-                          src={member.image}
-                          alt={member.name}
-                          className="h-full w-full object-cover"
+                        <div
+                          style={{
+                            backgroundImage: `url(${member.image})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            width: "100%",
+                            height: "100%",
+                          }}
+                          title={member.name}
                         />
                       </motion.div>
                     ))}

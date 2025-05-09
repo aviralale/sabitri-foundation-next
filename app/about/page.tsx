@@ -294,6 +294,49 @@ const AnimatedBadge: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
+const timelineData = [
+  {
+    year: "Dec 2023",
+    title: "Foundation Established",
+    description:
+      "Sabitri Foundation was founded with a mission to create a collaborative network of NGOs worldwide.",
+    isLeft: true,
+    delay: 0.1,
+  },
+  {
+    year: "Feb 2024",
+    title: "Together for Hygiene",
+    description:
+      "Initiated our first collaborative project with local NGOs in Nepal, focusing on educational access.",
+    isLeft: false,
+    delay: 0.2,
+  },
+  {
+    year: "Mar 2024",
+    title: "Hope Rising Children Home Visit",
+    description:
+      "Extended our network to include partner organizations across South Asia, connecting resources and expertise.",
+    isLeft: true,
+    delay: 0.3,
+  },
+  {
+    year: "Mar 2024",
+    title: "Women's Awareness and Donation Program",
+    description:
+      "Organized our inaugural Global Collaboration Summit, bringing together partners from 6 countries.",
+    isLeft: false,
+    delay: 0.5,
+  },
+  {
+    year: "Apr 2024",
+    title: "Short visit and Donation Program",
+    description:
+      "Established our digital collaboration platform to facilitate knowledge sharing among member organizations.",
+    isLeft: true,
+    delay: 0.4,
+  },
+];
+
 export default function AboutUsPage() {
   // Create scroll animation
   const { scrollYProgress } = useScroll();
@@ -488,7 +531,7 @@ export default function AboutUsPage() {
                 className="mt-4 bg-gradient-to-r from-blue-600 via-orange-600 to-green-600 bg-clip-text text-balance text-5xl font-bold tracking-tight text-transparent md:text-6xl xl:text-7xl dark:from-primary dark:via-purple-400 dark:to-blue-400"
               >
                 Our Story, Mission &{" "}
-                <span className="relative inline-block">
+                <span className="relative text-primary inline-block">
                   Vision
                   <AnimatedUnderline />
                 </span>
@@ -619,48 +662,16 @@ export default function AboutUsPage() {
               <div className="absolute left-1/2 top-0 hidden h-full w-1 -translate-x-1/2 bg-gradient-to-b from-primary/80 to-blue-500/80 md:block" />
 
               <div className="space-y-0">
-                <TimelineItem
-                  year="Dec 2023"
-                  title="Foundation Established"
-                  description="Sabitri Foundation was founded with a mission to create a collaborative network of NGOs worldwide."
-                  isLeft={true}
-                  delay={0.1}
-                />
-                <TimelineItem
-                  year="Jan 2024"
-                  title="First Partnership"
-                  description="Initiated our first collaborative project with local NGOs in Nepal, focusing on educational access."
-                  isLeft={false}
-                  delay={0.2}
-                />
-                <TimelineItem
-                  year="Mar 2024"
-                  title="Global Expansion"
-                  description="Extended our network to include partner organizations across South Asia, connecting resources and expertise."
-                  isLeft={true}
-                  delay={0.3}
-                />
-                <TimelineItem
-                  year="Jun 2024"
-                  title="Innovation Lab Launch"
-                  description="Established our digital collaboration platform to facilitate knowledge sharing among member organizations."
-                  isLeft={false}
-                  delay={0.4}
-                />
-                <TimelineItem
-                  year="Sep 2024"
-                  title="First Annual Summit"
-                  description="Organized our inaugural Global Collaboration Summit, bringing together partners from 6 countries."
-                  isLeft={true}
-                  delay={0.5}
-                />
-                <TimelineItem
-                  year="Dec 2024"
-                  title="Impact Milestone"
-                  description="Celebrated our first anniversary with 7 active programs and over 100 lives impacted through our collaborative initiatives."
-                  isLeft={false}
-                  delay={0.6}
-                />
+                {timelineData.map((item, index) => (
+                  <TimelineItem
+                    key={index}
+                    year={item.year}
+                    title={item.title}
+                    description={item.description}
+                    isLeft={item.isLeft}
+                    delay={item.delay}
+                  />
+                ))}
               </div>
             </div>
           </div>

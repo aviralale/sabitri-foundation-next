@@ -363,7 +363,7 @@ export default function ContactPage() {
                 className="mt-4 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-balance text-5xl font-bold tracking-tight text-transparent md:text-6xl xl:text-7xl dark:from-green-400 dark:via-blue-400 dark:to-purple-400"
               >
                 Let&apos;s Start a{" "}
-                <span className="relative inline-block">
+                <span className="relative text-primary inline-block">
                   Conversation
                   <AnimatedUnderline />
                 </span>
