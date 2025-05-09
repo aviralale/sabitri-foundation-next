@@ -320,7 +320,7 @@ const timelineData = [
     delay: 0.3,
   },
   {
-    year: "Mar 2024",
+    year: "Mar 2025",
     title: "Women's Awareness and Donation Program",
     description:
       "Organized our inaugural Global Collaboration Summit, bringing together partners from 6 countries.",
@@ -328,7 +328,7 @@ const timelineData = [
     delay: 0.5,
   },
   {
-    year: "Apr 2024",
+    year: "Apr 2025",
     title: "Short visit and Donation Program",
     description:
       "Established our digital collaboration platform to facilitate knowledge sharing among member organizations.",
