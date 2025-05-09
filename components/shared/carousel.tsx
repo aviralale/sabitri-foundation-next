@@ -447,7 +447,7 @@ export function Carousel({ slides, title, subtitle }: CarouselProps) {
           </h1>
 
           {subtitle && (
-            <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {subtitle}
             </p>
           )}
