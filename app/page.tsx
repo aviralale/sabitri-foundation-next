@@ -1,5 +1,6 @@
 import HeroSection from "@/components/hero-section";
 import { ProgramsSection } from "@/components/home-programs-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
 import React from "react";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div>
       <HeroSection />
       <ProgramsSection />
+      <TestimonialsSection />
     </div>
   );
 }

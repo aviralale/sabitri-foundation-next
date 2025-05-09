@@ -2,9 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Logo from "@/assets/images/logo.png";
 import Image from "next/image";
 
 // Enhanced animated gradient background with more layers
@@ -125,7 +123,7 @@ const ImageWithParallax = () => {
         <Image
           fill
           className="h-full w-full object-cover object-center transition-all duration-500 hover:scale-110 dark:brightness-90"
-          src={Logo}
+          src="https://www.sabitrifoundation.org/img/images/Logo.svg"
           alt="Global Collaboration"
         />
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/40 to-purple-500/40 opacity-60 mix-blend-overlay transition-opacity duration-300 hover:opacity-70 dark:from-blue-500/30 dark:to-purple-500/30 dark:mix-blend-color-dodge"></div>
@@ -243,24 +241,6 @@ const AnimatedBadge = ({ children }: { children: React.ReactNode }) => {
           repeatType: "loop",
         }}
       />
-    </motion.div>
-  );
-};
-
-// Enhanced partner logo component
-const PartnerLogo = ({ index }: { index: number }) => {
-  return (
-    <motion.div
-      whileHover={{
-        y: -5,
-        boxShadow:
-          "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
-      }}
-      className="flex"
-    >
-      <div className="flex h-14 w-36 items-center justify-center rounded-lg bg-background p-4 shadow-sm transition-all duration-300 hover:shadow-md dark:bg-muted/20 dark:hover:bg-muted/30">
-        <div className="h-9 w-28 rounded bg-gradient-to-r from-muted/80 to-muted/20 dark:from-muted/40 dark:to-muted/10"></div>
-      </div>
     </motion.div>
   );
 };
@@ -438,7 +418,8 @@ export default function HeroSection() {
                         transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
                         className="h-10 w-10 overflow-hidden rounded-full border-2 border-background ring-2 ring-primary/10 dark:border-muted"
                       >
-                        <img
+                        <Image
+                          fill
                           src={member.image}
                           alt={member.name}
                           className="h-full w-full object-cover"

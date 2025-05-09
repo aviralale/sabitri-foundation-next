@@ -14,7 +14,7 @@ export function ProgramsSection() {
       button: "Dive into Creativity",
       description:
         "A therapeutic and fun session designed to enhance emotional expression and learning through creative play.",
-      impactNumber: "60+",
+      impactNumber: "50+",
       impactLabel: "Students Engaged",
       src: ArtandPlayImg.src,
     },
@@ -24,7 +24,7 @@ export function ProgramsSection() {
       button: "See the Vision",
       description:
         "Empowering women through essential health education and material donations to promote dignity and awareness.",
-      impactNumber: "40+",
+      impactNumber: "80+",
       impactLabel: "Women Reached",
       src: WomenEmpowermentImg.src,
     },

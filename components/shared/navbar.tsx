@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Menu, X, Moon, Sun, Search, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React, { useState, useEffect } from "react";
 import { Logo } from "../logo";
@@ -17,68 +17,16 @@ const AnimatedLogo = () => {
 
 // Modern navigation menu items with dropdown capabilities
 const menuItems = [
-  {
-    name: "About Us",
-    href: "#about",
-    hasDropdown: true,
-    dropdownItems: [
-      { name: "Our Story", href: "#story" },
-      { name: "Team", href: "#team" },
-      { name: "Impact", href: "#impact" },
-    ],
-  },
-  {
-    name: "Programs",
-    href: "#programs",
-    hasDropdown: true,
-    dropdownItems: [
-      { name: "Healthcare", href: "#healthcare" },
-      { name: "Education", href: "#education" },
-      { name: "Environment", href: "#environment" },
-    ],
-  },
-  { name: "Get Involved", href: "#involved" },
-  { name: "Resources", href: "#resources" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Programs", href: "/programs" },
+  { name: "Membership", href: "/membership" },
+  { name: "Contact Us", href: "/contact" },
 ];
-
-// Enhanced dropdown menu component
-type DropdownItem = {
-  name: string;
-  href: string;
-};
-
-type DropdownMenuProps = {
-  items: DropdownItem[];
-  isVisible: boolean;
-};
-
-const DropdownMenu = ({ items, isVisible }: DropdownMenuProps) => {
-  if (!items || !isVisible) return null;
-
-  return (
-    <div className="absolute left-0 top-full z-20 mt-2 min-w-52 rounded-lg border border-muted/20 bg-background p-2 shadow-lg shadow-primary/5 animate-in fade-in slide-in-from-top-2 dark:border-muted/10 dark:shadow-primary/10">
-      <ul className="space-y-1">
-        {items.map((item, idx) => (
-          <li key={idx}>
-            <Link
-              href={item.href}
-              className="block rounded-md px-4 py-2 text-sm transition-colors hover:bg-muted dark:hover:bg-muted/20"
-            >
-              {item.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
 
 export const Navbar = () => {
   const [menuState, setMenuState] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Handle scroll effect for the header
   useEffect(() => {
@@ -88,21 +36,8 @@ export const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Check system preference for dark mode
-    if (typeof window !== "undefined") {
-      setIsDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
-    }
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    if (typeof document !== "undefined") {
-      document.documentElement.classList.toggle("dark");
-      setIsDarkMode(!isDarkMode);
-    }
-  };
 
   return (
     <header>
@@ -145,28 +80,13 @@ export const Navbar = () => {
                 <ul className="flex items-center gap-8 text-sm">
                   {menuItems.map((item, index) => (
                     <li key={index} className="relative">
-                      {item.hasDropdown ? (
-                        <button
-                          className="group flex items-center gap-1 rounded-md text-muted-foreground transition-colors hover:text-foreground"
-                          onMouseEnter={() => setActiveDropdown(index)}
-                          onMouseLeave={() => setActiveDropdown(null)}
-                        >
-                          <span>{item.name}</span>
-                          <ChevronDown className="size-4 transition-transform duration-200 group-hover:rotate-180" />
-                          <DropdownMenu
-                            items={item.dropdownItems}
-                            isVisible={activeDropdown === index}
-                          />
-                        </button>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className="group relative text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                          <span>{item.name}</span>
-                          <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                        </Link>
-                      )}
+                      <Link
+                        href={item.href}
+                        className="group relative text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        <span>{item.name}</span>
+                        <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -184,33 +104,12 @@ export const Navbar = () => {
                 <ul className="space-y-4 text-base">
                   {menuItems.map((item, index) => (
                     <li key={index}>
-                      {item.hasDropdown ? (
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between">
-                            <span className="font-medium">{item.name}</span>
-                            <ChevronDown className="size-4" />
-                          </div>
-                          <ul className="ml-4 space-y-2 border-l border-muted/20 pl-4 text-sm text-muted-foreground">
-                            {item.dropdownItems.map((subItem, subIdx) => (
-                              <li key={subIdx}>
-                                <Link
-                                  href={subItem.href}
-                                  className="hover:text-foreground"
-                                >
-                                  {subItem.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className="block font-medium transition-colors hover:text-primary"
-                        >
-                          <span>{item.name}</span>
-                        </Link>
-                      )}
+                      <Link
+                        href={item.href}
+                        className="block font-medium transition-colors hover:text-primary"
+                      >
+                        <span>{item.name}</span>
+                      </Link>
                     </li>
                   ))}
                 </ul>

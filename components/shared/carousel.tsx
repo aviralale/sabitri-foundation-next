@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useId, useEffect } from "react";
+import { useState, useRef, useId, useEffect, useCallback } from "react";
 import {
   ArrowRight,
   ArrowLeft,
@@ -9,6 +9,7 @@ import {
   ChevronRight,
   Star,
 } from "lucide-react";
+import Image from "next/image";
 
 interface SlideData {
   title: string;
@@ -112,7 +113,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     impactLabel,
     location,
     date,
-    category,
   } = slide;
 
   // Responsive styles
@@ -201,7 +201,8 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             }}
           ></div>
 
-          <img
+          <Image
+            fill
             className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out"
             style={{
               opacity: 0,
@@ -219,7 +220,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           {/* Location badge - responsive positioning */}
           {location && (
             <div
-              className="absolute top-3 md:top-6 left-3 md:left-6 bg-white/10 px-2 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-medium text-white border border-white/30 shadow-lg flex items-center space-x-1 md:space-x-2 z-30"
+              className="absolute top-3 max-w-1/2 md:top-6 left-3 md:left-6 bg-white/10 px-2 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-medium text-white border border-white/30 shadow-lg flex items-center space-x-1 md:space-x-2 z-30"
               style={{ backdropFilter: "blur(8px)" }}
             >
               <MapPin size={isMobile ? 12 : 14} className="text-emerald-400" />
@@ -264,7 +265,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             className="mb-4 md:mb-6 p-3 md:p-6 bg-black/40 rounded-xl md:rounded-2xl border border-white/10 shadow-2xl transform transition-transform duration-300"
             style={{ backdropFilter: "blur(8px)" }}
           >
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-5 relative">
+            <h2 className="text-xl  md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 md:mb-5 relative">
               {title}
               <span
                 className="absolute -bottom-2 md:-bottom-3 left-1/2 h-1 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full"
@@ -354,8 +355,7 @@ export function Carousel({ slides, title, subtitle }: CarouselProps) {
   const [current, setCurrent] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const handlePreviousClick = () => {
+  const handlePreviousClick = useCallback(() => {
     if (isTransitioning) return;
 
     setIsTransitioning(true);
@@ -363,9 +363,9 @@ export function Carousel({ slides, title, subtitle }: CarouselProps) {
     setCurrent(previous < 0 ? slides.length - 1 : previous);
 
     setTimeout(() => setIsTransitioning(false), 900);
-  };
+  }, [current, isTransitioning, slides.length]);
 
-  const handleNextClick = () => {
+  const handleNextClick = useCallback(() => {
     if (isTransitioning) return;
 
     setIsTransitioning(true);
@@ -373,7 +373,7 @@ export function Carousel({ slides, title, subtitle }: CarouselProps) {
     setCurrent(next === slides.length ? 0 : next);
 
     setTimeout(() => setIsTransitioning(false), 900);
-  };
+  }, [current, isTransitioning, slides.length]);
 
   const handleSlideClick = (index: number) => {
     if (current !== index && !isTransitioning) {
@@ -392,7 +392,7 @@ export function Carousel({ slides, title, subtitle }: CarouselProps) {
     }, 8000);
 
     return () => clearTimeout(timer);
-  }, [current, isTransitioning]);
+  }, [current, isTransitioning, handleNextClick]);
 
   const id = useId();
 
@@ -408,7 +408,7 @@ export function Carousel({ slides, title, subtitle }: CarouselProps) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [current, isTransitioning]);
+  }, [current, isTransitioning, handlePreviousClick, handleNextClick]);
 
   return (
     <div className="relative mx-auto px-6  min-h-screen">
