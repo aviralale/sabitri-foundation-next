@@ -27,17 +27,15 @@ export const PROGRAMSCONTENT = {
       "Join our network of collaborators and contribute your expertise to our ongoing and future projects. Together, we can create sustainable solutions to complex challenges.",
     primaryButton: {
       text: "Become a Partner",
-      link: "#become-partner",
+      link: "/join-us",
     },
-    secondaryButton: {
-      text: "View Upcoming Projects",
-      link: "#upcoming-projects",
-    },
+    
   },
   works: [
     {
       id: 1,
       title: "Rural Education Transformation Project",
+      slug: "rural-education-transformation-project",
       category: "Education",
       year: "2023-2024",
       image: "/api/placeholder/640/360",
@@ -54,6 +52,7 @@ export const PROGRAMSCONTENT = {
     {
       id: 2,
       title: "Women's Cooperative Development Initiative",
+      slug: "womens-cooperative-development-initiative",
       category: "Economic Empowerment",
       year: "2022-2023",
       image: "/api/placeholder/640/360",
@@ -70,6 +69,7 @@ export const PROGRAMSCONTENT = {
     {
       id: 3,
       title: "Clean Water Infrastructure Project",
+      slug: "clean-water-infrastructure-project",
       category: "Health",
       year: "2022-2023",
       image: "/api/placeholder/640/360",
@@ -86,6 +86,7 @@ export const PROGRAMSCONTENT = {
     {
       id: 4,
       title: "Youth Leadership & Social Innovation Camp",
+      slug: "youth-leadership-social-innovation-camp",
       category: "Youth Development",
       year: "2023",
       image: "/api/placeholder/640/360",
@@ -102,6 +103,7 @@ export const PROGRAMSCONTENT = {
     {
       id: 5,
       title: "Climate-Resilient Farming Initiative",
+      slug: "climate-resilient-farming-initiative",
       category: "Environment",
       year: "2021-2023",
       image: "/api/placeholder/640/360",
@@ -118,6 +120,7 @@ export const PROGRAMSCONTENT = {
     {
       id: 6,
       title: "Mobile Health Clinics Network",
+      slug: "mobile-health-clinics-network",
       category: "Healthcare",
       year: "2022-2024",
       image: "/api/placeholder/640/360",
@@ -134,6 +137,7 @@ export const PROGRAMSCONTENT = {
     {
       id: 7,
       title: "Digital Skills for Entrepreneurs Program",
+      slug: "digital-skills-for-entrepreneurs-program",
       category: "Economic Development",
       year: "2023-2024",
       image: "/api/placeholder/640/360",
@@ -150,6 +154,7 @@ export const PROGRAMSCONTENT = {
     {
       id: 8,
       title: "Waste Management & Recycling Initiative",
+      slug: "waste-management-recycling-initiative",
       category: "Environment",
       year: "2022-2023",
       image: "/api/placeholder/640/360",
@@ -166,6 +171,7 @@ export const PROGRAMSCONTENT = {
     {
       id: 9,
       title: "Girls' STEM Education Project",
+      slug: "girls-stem-education-project",
       category: "Education",
       year: "2023-2024",
       image: "/api/placeholder/640/360",

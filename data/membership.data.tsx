@@ -147,7 +147,7 @@ const MEMBERSHIP_CONTENT = {
     description:
       "Become a part of our growing community dedicated to making a positive impact.",
     buttonText: "Join Now",
-    buttonLink: "/join",
+    buttonLink: "/join-us",
   },
 
   // Contact Section

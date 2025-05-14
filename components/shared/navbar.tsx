@@ -44,7 +44,7 @@ export const Navbar = () => {
       <nav
         data-state={menuState ? "active" : "inactive"}
         data-scrolled={isScrolled ? "true" : "false"}
-        className="fixed z-30 w-full border-b border-transparent backdrop-blur-xl transition-all duration-300 data-[scrolled=true]:border-muted/20 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:shadow-lg data-[scrolled=true]:shadow-primary/5 dark:data-[scrolled=true]:border-muted/10 dark:data-[scrolled=true]:bg-background/70 dark:data-[scrolled=true]:shadow-primary/10"
+        className="fixed z-1000 w-full border-b border-transparent backdrop-blur-xl transition-all duration-300 data-[scrolled=true]:border-muted/20 data-[scrolled=true]:bg-background/80 data-[scrolled=true]:shadow-lg data-[scrolled=true]:shadow-primary/5 dark:data-[scrolled=true]:border-muted/10 dark:data-[scrolled=true]:bg-background/70 dark:data-[scrolled=true]:shadow-primary/10"
       >
         <div className="mx-auto max-w-6xl px-6 transition-all duration-300">
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-4 lg:gap-0 lg:py-4">
@@ -129,7 +129,7 @@ export const Navbar = () => {
                   size="sm"
                   className="bg-gradient-to-r from-orange-600 to-blue-600 transition-all duration-300 hover:brightness-110 "
                 >
-                  <Link href="#">
+                  <Link href="/join-us">
                     <span>Join Us</span>
                   </Link>
                 </Button>

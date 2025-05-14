@@ -102,7 +102,7 @@ export default function WorksPage() {
                   image={work.image}
                   description={work.description}
                   outcomes={work.outcomes}
-                  link={work.link}
+                  link={`/programs/${work.slug}`}
                   index={index}
                 />
               ))}
