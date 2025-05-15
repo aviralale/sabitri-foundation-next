@@ -15,6 +15,7 @@ interface SlideData {
   title: string;
   button: string;
   src: string;
+  slug: string;
   description?: string;
   impactNumber?: string;
   impactLabel?: string;
@@ -113,6 +114,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     impactLabel,
     location,
     date,
+    slug
   } = slide;
 
   // Responsive styles
@@ -283,7 +285,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           </div>
 
           <div className="flex justify-center items-center space-x-2 md:space-x-4 mt-2 md:mt-4">
-            <button className="px-4 md:px-8 py-2 md:py-4 text-xs md:text-base font-semibold text-white bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 rounded-full flex items-center space-x-2 md:space-x-3 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg shadow-md border border-emerald-500/50">
+            <button onClick={()=> window.location.href = `/programs/${slide.slug}`} className="px-4 md:px-8 py-2 md:py-4 text-xs md:text-base font-semibold text-white bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 rounded-full flex items-center space-x-2 md:space-x-3 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg shadow-md border border-emerald-500/50">
               <span>{button}</span>
               <ChevronRight
                 size={isMobile ? 14 : 18}
@@ -490,7 +492,7 @@ export function Carousel({ slides, title, subtitle }: CarouselProps) {
 
         <div
           className="absolute flex justify-center items-center space-x-8 w-full"
-          style={{ top: "calc(100% + 3rem)" }}
+          style={{ top: "100%" }}
         >
           <CarouselControl
             type="previous"

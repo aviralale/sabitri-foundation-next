@@ -29,15 +29,7 @@ export default function CallToAction() {
                 {PROGRAMSCONTENT.cta.primaryButton.text}
               </a>
             </Button>
-            <Button
-              variant="outline"
-              className="border-primary/20 font-medium hover:bg-primary/10 hover:text-primary"
-              asChild
-            >
-              <a href={PROGRAMSCONTENT.cta.secondaryButton.link}>
-                {PROGRAMSCONTENT.cta.secondaryButton.text}
-              </a>
-            </Button>
+            
           </div>
         </motion.div>
       </div>

@@ -43,7 +43,7 @@ const MembershipCard: React.FC<MembershipCardProps> = ({
             </li>
           ))}
         </ul>
-        <Button className={`w-full`}>Join Now</Button>
+        <Button className={`w-full`} onClick={()=> window.location.href = "/join-us"}>Join Now</Button>
       </div>
     </motion.div>
   );
